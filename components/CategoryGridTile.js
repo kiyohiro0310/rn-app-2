@@ -10,7 +10,7 @@ function CategoryGridTile({ title, color }) {
           pressed ? styles.buttonPressed : null,
         ]}
       >
-        <View style={styles.innerContainer}>
+        <View style={[styles.innerContainer, {backgroundColor: color}]}>
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 8
   },
   title: {
     fontWeight: "bold",
