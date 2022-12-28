@@ -12,26 +12,27 @@ function MealsOverviewScreen({ route, navigation }) {
   });
 
   useLayoutEffect(() => {
-    const categoryTitle = CATEGORIES.find((category) => category.id === catId).title;
+    const categoryTitle = CATEGORIES.find(
+      (category) => category.id === catId
+    ).title;
 
     navigation.setOptions({
-      title: categoryTitle
+      title: categoryTitle,
     });
-  }, [catId, navigation])
+  }, [catId, navigation]);
 
   function renderMealItem(itemData) {
     const item = itemData.item;
 
     const mealItemProps = {
-        title: item.title,
-        imageUrl: item.imageUrl,
-        affordability: item.affordability,
-        complexity: item.complexity,
-        duration: item.duration
-    }
-    return (
-      <MealItem {...mealItemProps}  />
-    );
+      id: item.id,
+      title: item.title,
+      imageUrl: item.imageUrl,
+      affordability: item.affordability,
+      complexity: item.complexity,
+      duration: item.duration,
+    };
+    return <MealItem {...mealItemProps} />;
   }
   return (
     <View style={sytles.container}>
